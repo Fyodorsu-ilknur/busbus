@@ -1,7 +1,12 @@
 /* src/components/VehicleList.css */
 
 .vehicle-list-container {
-  width: 250px;
+   position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 3px 0px 15px rgba(0,0,0,0.2);
+  width: 170px;
   background-color: #f7f9fa;
   padding: 15px;
   border-right: 1px solid #e0e0e0;
@@ -34,4 +39,16 @@
 .vehicle-item:hover {
   background-color: #eef4ff;
   border-color: #4a90e2;
+}
+
+.list-header h2 {
+  margin-bottom: 10px;
+}
+
+
+
+.vehicle-item.selected {
+  background-color: #afc0d6; /* Açık mavi bir arkaplan */
+  border-color: #3b82f6; /* Daha belirgin bir kenarlık rengi */
+  font-weight: bold; /* Yazıyı kalın yap */
 }

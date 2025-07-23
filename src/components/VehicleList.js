@@ -1,23 +1,29 @@
 // src/components/VehicleList.js
 
-import React from 'react';
-import './VehicleList.css'; // Stil dosyasını import ediyoruz
+import React from 'react'; 
+import './VehicleList.css'; 
 
-// Bu bileşen, 'vehicles' adında bir prop (özellik) alacak.
-function VehicleList({ vehicles, onVehicleClick }) {
+function VehicleList({ vehicles, onVehicleClick, selectedVehicle,o}) {
   return (
     <div className="vehicle-list-container">
-      <h2>Aktif Araçlar</h2>
+          {/*} <div className="list-header">*/}
+
+      <h2>Active Vehicles</h2>
+       
+
       <ul>
-        {vehicles.map((vehicle) => (
-          <li 
-            key={vehicle.id} 
-            className="vehicle-item"
-            onClick={() => onVehicleClick(vehicle)}
-          >
-            {vehicle.id}
-          </li>
-        ))}
+        {vehicles.map((vehicle) => {
+          const isSelected = selectedVehicle && selectedVehicle.id === vehicle.id;
+          return (
+            <li 
+              key={vehicle.id} 
+              className={`vehicle-item ${isSelected ? 'selected' : ''}`}
+              onClick={() => onVehicleClick(vehicle)}
+            >
+              {vehicle.id}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
